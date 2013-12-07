@@ -32,7 +32,7 @@ namespace TextBasedAdventureGame
             Game theGame = new Game();
             theGame.reset();            
 
-            //theGame.StartGame();
+            theGame.StartGame();
 
             while (theGame.getPlaying() == true)
             {
@@ -47,7 +47,7 @@ namespace TextBasedAdventureGame
     {
         bool m_Playing = true;
         Location m_Location = new Location();
-        Map.Map map = new Map.Map();
+        //Map.Map map = new Map.Map();
 
         string currentLocation = string.Empty;
 
