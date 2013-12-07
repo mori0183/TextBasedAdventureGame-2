@@ -355,8 +355,14 @@ namespace TextBasedAdventureGame
             setLocation("RIVER");
 
             Console.Clear();
-            Console.WriteLine("You approach the river with caution as the rapids could easily pull you");
-            Console.WriteLine(" in and make short work of you. A ROPE could be quite handy right now...\n");
+            Console.WriteLine("Walking down the path you begin to hear rushing water. As you get ");
+            Console.WriteLine("closer the rushing water sounds dangerous. You come out of the woods ");
+            Console.WriteLine("and you can finally see the river. The river is flowing at lethal ");
+            Console.WriteLine("speed, rapids and white caps deter from trying to cross it. You see ");
+            Console.WriteLine("a couple of makeshift tomb stones and this makes the river seem even ");
+            Console.WriteLine("more daunting. You can see a tree with a rope that had been cut or ");
+            Console.WriteLine("snapped on the other side of the river. You think to yourself \"A ");
+            Console.WriteLine(" ROPE would be quite handy right now.\".");
            
 
             while (getLocation() == "RIVER")
@@ -956,7 +962,17 @@ namespace TextBasedAdventureGame
             setLocation("CASTLE");
 
             Console.Clear();
-            Console.WriteLine("== The demon is preparing an attack! Press the Q button to attack him first!");
+            Console.WriteLine("You unlock the gates and they open slow, but steadily. You walk up to the castle");
+            Console.WriteLine("door and knock using the skull door knocker. You can hear the sound echoing ");
+            Console.WriteLine("behind the door. The door suddenly swings open and a cold wind blows past you ");
+            Console.WriteLine("from inside. The wind is cold and smells of rotton corpses. You muster the ");
+            Console.WriteLine("courage and enter the castle. When you enter you can see the main hall and the ");
+            Console.WriteLine("dusty dinning table, indicating the lack of use for a long period of time. ");
+            Console.WriteLine("Suddenly a shriek coming from up stairs startles you. You sprint up the stairs and");
+            Console.WriteLine("you see a door with a light source coming from the bottom of the door. You run to ");
+            Console.WriteLine("the door and barge in. You seethe DEMON from the beginning of the game. It ");
+            Console.WriteLine("smirkingly glares at you as if it was expecting you. ");
+            Console.WriteLine("The demon is preparing an attack! Press the Q button to attack him first!");
             System.Threading.Thread.Sleep(4000);
             string input = Console.ReadLine();
 
@@ -1000,7 +1016,7 @@ namespace TextBasedAdventureGame
                 Console.WriteLine("               / _/____)");
                 Console.WriteLine("               \\//(____)");
                 Console.WriteLine("-------------\\     (__)");
-                Console.WriteLine("               `-----''");
+                Console.WriteLine("              `-----''");
 
                 System.Threading.Thread.Sleep(200);
                 Console.Clear();
@@ -1009,7 +1025,7 @@ namespace TextBasedAdventureGame
                 Console.WriteLine("                  / _/____)");
                 Console.WriteLine("                  \\//(____)");
                 Console.WriteLine("----------------\\     (__)");
-                Console.WriteLine("               `-----''");
+                Console.WriteLine("                 `-----''");
 
                 System.Threading.Thread.Sleep(200);
                 Console.Clear();
@@ -1018,7 +1034,7 @@ namespace TextBasedAdventureGame
                 Console.WriteLine("                     / _/____)");
                 Console.WriteLine("                     \\//(____)");
                 Console.WriteLine("-------------------\\     (__)");
-                Console.WriteLine("                  `-----''");
+                Console.WriteLine("                    `-----''");
                 ConsoleKeyInfo checker;
                 checker = Console.ReadKey(true);
                 if (checker.Key == ConsoleKey.Q )
