@@ -9,9 +9,6 @@ using System.Threading;
 
 /*
 TODO:
- * Replace all lower case cases with upper case
- * Add a check inventory and look around case to each location
- * Add a default case to each location
  * QTE fix, it doesn't work or the player doesn't know when it works
  * Get the countdown to work
  
@@ -130,14 +127,14 @@ namespace TextBasedAdventureGame
             Console.Clear();
 
             Console.Clear();
-            Console.WriteLine("          Welcome to FAIL QUEST.\nThis text based adventure will test your failure awesomenessness.\n\nYou have just exited the TOWN of Shmagma, ");
+            Console.WriteLine("          Welcome to FAIL QUEST.\nThis text based adventure will test your failure awesomenessness.\n\nYou have just exited the TOWN of Seckly, ");
             Console.WriteLine("it is a hot summer day with a nice cool wind blowing east and everything is ");
             Console.WriteLine("perfect. All of a sudden a shriek comes from the north east of your position.");
             Console.WriteLine("Quickly you spin around and witness a massive DEMON carring a princess to the ");
             Console.WriteLine("castle behind the TOWN you just left.");
             Console.WriteLine("You feel you must do what you can to save the princess from her fate,\nbut you must aquire itams to aid you on your quest.");
             Console.WriteLine("You are facing a path that leads to a beautiful FIELD of tall grass.");
-            Console.WriteLine("Behind you is the TOWN of Shmagma from which you have just exited.\n");
+            Console.WriteLine("Behind you is the TOWN of Seckly from which you have just exited.\n");
             Console.WriteLine("What do you choose to do?");
             Console.WriteLine("Go to the TOWN.");
             Console.WriteLine("Go to the FIELD.");
@@ -176,7 +173,7 @@ namespace TextBasedAdventureGame
             string action = toHere.ToUpper();
             switch (action)
             {
-                case "LOOK":
+                case "LOOK AROUND":
                     LookAround();
                     break;
 
@@ -193,49 +190,16 @@ namespace TextBasedAdventureGame
                     inventory.removeFromInventory(Console.ReadLine());
                     break;
 
-                case "CASTLE":
-                    Castle();
-                    break;
-
-                case "DIE":
-                    gameOver();
-                    break;
-
-                case "MILL":
-                    Mill();
-                    break;
-
                 case "TOWN":
                     Town();
                     break;
 
-                case "BASEMENT":
-                    Basement();
-                    break;
-
-
-                case "QUARRY":
-                    Quarry();
-                    break;
-
-                case "BLACKSMITH":
-                    Blacksmith();
-                    break;
-
                 case "FIELD":
-                    FieldOfShit();
-                    break;
-
-                case "RIVER":
-                    River();
-                    break;
-
-                case "FOREST":
-                    Forest();
+                    Field();
                     break;
 
                 default:
-                    Console.WriteLine("Does not compute");
+                    Console.WriteLine("Thy does not compute. Try again");
                     break;
             }
         }
@@ -282,23 +246,6 @@ namespace TextBasedAdventureGame
             Console.WriteLine("As you come back to reality you are unsure of the time lost and decide ");
             Console.WriteLine("it's time to continue your quest. You gaze across the field. ");
             Console.WriteLine("Looking across the field, you can see a paths leading East, South and West.");
-            Console.WriteLine("To the east lies the RIVER,\nto the south, the MILL,\nand to the west is the FOREST.\n");
-            Console.WriteLine("What do you choose to do?");
-            Console.WriteLine("Go to the RIVER.");
-            Console.WriteLine("Go to the MILL.");
-            Console.WriteLine("Go to the FOREST.");
-            Console.WriteLine("Look around.");
-            Console.WriteLine("Check Inventory.");
-        }
-
-        private void FieldOfShit()
-        {
-            setLocation("FIELD");
-
-            Console.Clear();
-            Console.WriteLine("As you approach the field you notice a fairly recognizable smell");
-            Console.WriteLine("You realize it is the smell of feces, but you are unable to ");
-            Console.WriteLine("Identify the origins of what it came from.");
             Console.WriteLine("To the east lies the RIVER,\nto the south, the MILL,\nand to the west is the FOREST.\n");
 
             while (getLocation() == "FIELD")
@@ -381,12 +328,23 @@ namespace TextBasedAdventureGame
                         Quarry();
                         break;
 
-                    case "Go to the FIELD":
-                        FieldOfShit();
+                    case "GO TO THE FIELD":
+                        Field();
                         break;
 
-                    case "Check Inventory":
+                    case "CHECK INVENTORY":
                         inventory.printInventory();
+                        break;
+
+                    case "LOOK AROUND":
+                        {
+                            Console.WriteLine("You look around and see the rapids, a TREE across the");
+                            Console.WriteLine("rapids in front on you and the field behind you.");
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("Thy does not compute. Try again");
                         break;
                 }
             }
@@ -466,6 +424,18 @@ namespace TextBasedAdventureGame
                             Console.Clear();
                             break;
                         }
+
+                    case "CHECK INVENTORY":
+                        inventory.printInventory();
+                        break;
+
+                    case "LOOK AROUND":
+                        {
+                            Console.WriteLine("You look around and see some workers playing with");
+                            Console.WriteLine("some rocks and a man by a pulley.");
+                        }
+                        break;
+
                     default:
                         Console.WriteLine("Thy does not compute. Try again");
                         break;
@@ -509,7 +479,7 @@ namespace TextBasedAdventureGame
                     case "FIELD":
                     case "GO TO FIELD":
                     case "GO TO THE FIELD":
-                        FieldOfShit();
+                        Field();
                         break;
 
                     case "BASEMENT":
@@ -582,7 +552,6 @@ namespace TextBasedAdventureGame
                         break;
 
                     default:
-                        Console.Clear();
                         Console.WriteLine("Thy does not compute. Try again");
                         break;
                 }
@@ -619,7 +588,7 @@ namespace TextBasedAdventureGame
                     case "EAST":
                         if (posXForestMaze == 0 && posYForestMaze == 0)
                         {
-                            FieldOfShit();
+                            Field();
                         }
 
                         else
@@ -644,6 +613,11 @@ namespace TextBasedAdventureGame
                         posYForestMaze--;
                         Console.WriteLine("You aren't sure where you are. Let's try a different direction");
                         break;
+
+                    default:
+                        Console.WriteLine("Thy does not compute. Try again");
+                        break;
+
                 }
             }
         }
@@ -672,7 +646,7 @@ namespace TextBasedAdventureGame
                     case "FIELD":
                     case "GO TO FIELD":
                     case "GO TO THE FIELD":
-                        FieldOfShit();
+                        Field();
                         break;
 
                     case "LOOK AROUND":
@@ -750,8 +724,13 @@ namespace TextBasedAdventureGame
                         Castle();
                         break;
 
-                    case "Go to the FIELD":
-                        FieldOfShit();
+                    case "GO TO THWE FIELD":
+                        Field();
+                        break;
+
+                    case "LOOK AROUND":
+                        Console.WriteLine("You look around and see plenty of shops with baked goods,");
+                        Console.WriteLine("a lot of people, a BLACKSMITH's and a TAVERN.");
                         break;
 
                     case "CHECK INVENTORY":
@@ -760,10 +739,8 @@ namespace TextBasedAdventureGame
                         break;                        
 
                     default:
-                        {
-                            Console.WriteLine("That didn't work at all! Maybe check dat grammar?");
+                            Console.WriteLine("Thy does not compute. Try again");
                             break;
-                        }
                 }
             }
         }
@@ -876,10 +853,8 @@ namespace TextBasedAdventureGame
                         }
 
                     default:
-                        {
-                            Console.WriteLine("That didn't quite work. Try again");
+                        Console.WriteLine("Thy does not compute. Try again");
                             break;
-                        }
                 }
             }
         }
@@ -891,7 +866,13 @@ namespace TextBasedAdventureGame
             int broseph = 0;
             //Required bools
             //TODO: Item from drunk man
-            Console.WriteLine("You walk into a tavern. You see many patrons and wenches. You notice a large man at the bar\n");
+            Console.Clear();
+            Console.WriteLine("You enter the tavern. The smell of mead and testosterone blankets the air.");
+            Console.WriteLine("You look around and see plenty of patrons and wenches all about the tavern.");
+            Console.WriteLine("You notice a large burley man, of mismatched proportions. He has tiny, thin");
+            Console.WriteLine("legs and arms the size of barrels, he is leaning at the bar, talking to the");
+            Console.WriteLine("bar tender. The Large man notices you have come in and gives you a look.");
+            Console.WriteLine("The look is a typical \"I will fight you\" look.");
 
             while (getLocation() == "TAVERN")
             {
@@ -948,11 +929,19 @@ namespace TextBasedAdventureGame
                             break;
                         }
 
+                    case "LOOK AROUND":
+                        Console.WriteLine("You look around and see a large man at the bar, ");
+                        Console.WriteLine("a lot of people, a BLACKSMITH's and a TAVERN.");
+                        break;
+
+                    case "CHECK INVENTORY":
+                        Console.Clear();
+                        inventory.printInventory();
+                        break;     
+
                     default:
-                        {
-                            Console.WriteLine("Thy does not compute. Try again, fool!");
+                            Console.WriteLine("Thy does not compute. Try again");
                             break;
-                        }
                 }
             }
         }
